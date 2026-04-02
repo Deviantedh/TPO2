@@ -62,7 +62,7 @@ public class DataPlotter extends JFrame {
         renderer.setSeriesLinesVisible(0, true);  
         renderer.setSeriesShapesVisible(0, true); 
         renderer.setSeriesShape(0, new java.awt.geom.Ellipse2D.Double(-3, -3, 6, 6));
-        renderer.setSeriesPaint(0, Color.BLUE);
+        renderer.setSeriesPaint(0, Color.PINK);
         plot.setRenderer(renderer);
         
         plot.setBackgroundPaint(Color.WHITE);
