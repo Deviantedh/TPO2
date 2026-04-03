@@ -26,9 +26,6 @@ public class EquationSystemIntegrationSinLnCosTgTest {
         Cos cos = new Cos(sin);
         Tan tan = new Tan(sin, cos);
         Ln ln = new Ln();
-        AbstractMathFunction cot = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction sec = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction csc = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log2 = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log3 = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log5 = Mockito.mock(AbstractMathFunction.class);
@@ -39,7 +36,7 @@ public class EquationSystemIntegrationSinLnCosTgTest {
         BigDecimal tanVal = tan.calculate(x, EquationSystemIntegrationSupport.EPS);
 
         EquationSystem system = new EquationSystem(
-                sin, cos, tan, cot, sec, csc,
+                sin, cos, tan,
                 ln, log2, log3, log5, log10
         );
 
@@ -58,9 +55,6 @@ public class EquationSystemIntegrationSinLnCosTgTest {
         Cos cos = new Cos(sin);
         Tan tan = new Tan(sin, cos);
         Ln ln = new Ln();
-        AbstractMathFunction cot = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction sec = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction csc = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log2 = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log3 = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log5 = Mockito.mock(AbstractMathFunction.class);
@@ -78,7 +72,7 @@ public class EquationSystemIntegrationSinLnCosTgTest {
         when(log10.calculate(eq(x), eq(EquationSystemIntegrationSupport.EPS))).thenReturn(log10Val);
 
         EquationSystem system = new EquationSystem(
-                sin, cos, tan, cot, sec, csc,
+                sin, cos, tan,
                 ln, log2, log3, log5, log10
         );
 

@@ -21,9 +21,6 @@ public class EquationSystemIntegrationStubTest {
         AbstractMathFunction sin = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction cos = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction tan = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction cot = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction sec = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction csc = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction ln = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log2 = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log3 = Mockito.mock(AbstractMathFunction.class);
@@ -39,7 +36,7 @@ public class EquationSystemIntegrationStubTest {
         when(tan.calculate(eq(x), eq(EquationSystemIntegrationSupport.EPS))).thenReturn(tanVal);
 
         EquationSystem system = new EquationSystem(
-                sin, cos, tan, cot, sec, csc,
+                sin, cos, tan,
                 ln, log2, log3, log5, log10
         );
 
@@ -57,9 +54,6 @@ public class EquationSystemIntegrationStubTest {
         AbstractMathFunction sin = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction cos = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction tan = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction cot = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction sec = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction csc = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction ln = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log2 = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log3 = Mockito.mock(AbstractMathFunction.class);
@@ -79,7 +73,7 @@ public class EquationSystemIntegrationStubTest {
         when(log10.calculate(eq(x), eq(EquationSystemIntegrationSupport.EPS))).thenReturn(log10Val);
 
         EquationSystem system = new EquationSystem(
-                sin, cos, tan, cot, sec, csc,
+                sin, cos, tan,
                 ln, log2, log3, log5, log10
         );
 

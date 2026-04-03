@@ -21,9 +21,6 @@ class EquationSystemTest {
         Sin sin = new Sin();
         Cos cos = new Cos(sin);
         Tan tan = new Tan(sin, cos);
-        Cot cot = new Cot(tan);
-        Sec sec = new Sec(cos);
-        Csc csc = new Csc(sin);
 
         Ln ln = new Ln();
         LogNBase log2 = new LogNBase(ln, 2);
@@ -32,7 +29,7 @@ class EquationSystemTest {
         LogNBase log10 = new LogNBase(ln, 10);
 
         system = new EquationSystem(
-                sin, cos, tan, cot, sec, csc,
+                sin, cos, tan,
                 ln, log2, log3, log5, log10
         );
     }

@@ -12,9 +12,6 @@ public class EquationSystem {
     private final AbstractMathFunction sin;
     private final AbstractMathFunction cos;
     private final AbstractMathFunction tan;
-    private final AbstractMathFunction cot;
-    private final AbstractMathFunction sec;
-    private final AbstractMathFunction csc;
 
     private final AbstractMathFunction ln;
     private final AbstractMathFunction log2;
@@ -24,16 +21,12 @@ public class EquationSystem {
 
     /** Создает систему из модулей функций. */
     public EquationSystem(AbstractMathFunction sin, AbstractMathFunction cos, AbstractMathFunction tan,
-                          AbstractMathFunction cot, AbstractMathFunction sec, AbstractMathFunction csc,
                           AbstractMathFunction ln, AbstractMathFunction log2, AbstractMathFunction log3,
                           AbstractMathFunction log5, AbstractMathFunction log10) {
 
         this.sin = sin;
         this.cos = cos;
         this.tan = tan;
-        this.cot = cot;
-        this.sec = sec;
-        this.csc = csc;
         this.ln = ln;
         this.log2 = log2;
         this.log3 = log3;

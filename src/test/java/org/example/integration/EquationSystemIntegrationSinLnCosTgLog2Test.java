@@ -16,23 +16,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
-public class EquationSystemIntegrationSinLnCosTgCotSecTest {
+public class EquationSystemIntegrationSinLnCosTgLog2Test {
 
-    // Проверяет левую ветку после добавления реального log_5 в систему.
+    // Проверяет левую ветку после добавления реального log_2 в систему.
     @Test
-    public void testLeftBranchWithLog2AndLog5Added() {
-        BigDecimal x = new BigDecimal("-2");
+    public void testLeftBranchWithLog2Added() {
+        BigDecimal x = new BigDecimal("-1");
 
         Sin sin = new Sin();
         Cos cos = new Cos(sin);
         Tan tan = new Tan(sin, cos);
         Ln ln = new Ln();
         LogNBase log2 = new LogNBase(ln, 2);
-        LogNBase log5 = new LogNBase(ln, 5);
-        AbstractMathFunction cot = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction sec = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction csc = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log3 = Mockito.mock(AbstractMathFunction.class);
+        AbstractMathFunction log5 = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log10 = Mockito.mock(AbstractMathFunction.class);
 
         BigDecimal sinVal = sin.calculate(x, EquationSystemIntegrationSupport.EPS);
@@ -40,7 +37,7 @@ public class EquationSystemIntegrationSinLnCosTgCotSecTest {
         BigDecimal tanVal = tan.calculate(x, EquationSystemIntegrationSupport.EPS);
 
         EquationSystem system = new EquationSystem(
-                sin, cos, tan, cot, sec, csc,
+                sin, cos, tan,
                 ln, log2, log3, log5, log10
         );
 
@@ -50,9 +47,9 @@ public class EquationSystemIntegrationSinLnCosTgCotSecTest {
         assertTrue(actual.subtract(expected).abs().compareTo(EquationSystemIntegrationSupport.EPS) <= 0);
     }
 
-    // Проверяет правую ветку после добавления реальных log_2 и log_5.
+    // Проверяет правую ветку после добавления реального log_2 в систему.
     @Test
-    public void testRightBranchWithLog2AndLog5Added() {
+    public void testRightBranchWithLog2Added() {
         BigDecimal x = new BigDecimal("2");
 
         Sin sin = new Sin();
@@ -60,24 +57,22 @@ public class EquationSystemIntegrationSinLnCosTgCotSecTest {
         Tan tan = new Tan(sin, cos);
         Ln ln = new Ln();
         LogNBase log2 = new LogNBase(ln, 2);
-        LogNBase log5 = new LogNBase(ln, 5);
-        AbstractMathFunction cot = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction sec = Mockito.mock(AbstractMathFunction.class);
-        AbstractMathFunction csc = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log3 = Mockito.mock(AbstractMathFunction.class);
+        AbstractMathFunction log5 = Mockito.mock(AbstractMathFunction.class);
         AbstractMathFunction log10 = Mockito.mock(AbstractMathFunction.class);
 
         BigDecimal lnVal = ln.calculate(x, EquationSystemIntegrationSupport.EPS);
         BigDecimal log2Val = log2.calculate(x, EquationSystemIntegrationSupport.EPS);
         BigDecimal log3Val = new BigDecimal("0.6309297535714574");
-        BigDecimal log5Val = log5.calculate(x, EquationSystemIntegrationSupport.EPS);
+        BigDecimal log5Val = new BigDecimal("0.43067655807339306");
         BigDecimal log10Val = new BigDecimal("0.3010299956639812");
 
         when(log3.calculate(eq(x), eq(EquationSystemIntegrationSupport.EPS))).thenReturn(log3Val);
+        when(log5.calculate(eq(x), eq(EquationSystemIntegrationSupport.EPS))).thenReturn(log5Val);
         when(log10.calculate(eq(x), eq(EquationSystemIntegrationSupport.EPS))).thenReturn(log10Val);
 
         EquationSystem system = new EquationSystem(
-                sin, cos, tan, cot, sec, csc,
+                sin, cos, tan,
                 ln, log2, log3, log5, log10
         );
 
